@@ -1,24 +1,22 @@
 const express = require('express')
 const apiApp = express()
-const spaApp = express()
+// const spaApp = express()
 
-apiApp.get('/api', (req, res) => {
-  res.send('popajopa api')
-})
+//routes
+const pyRouter = require('./routes/py')
+const apiRouter = require('./routes/api')
 
-apiApp.get('/py', (req, res) => {
-  res.send('popajopa py')
-  console.log(req.query)
-})
-
-spaApp.get('*', (req, res) => {
-  res.send('popajopa SPA')
-})
+apiApp.use('/py', pyRouter)
+apiApp.use('/api', apiRouter)
 
 apiApp.listen(5000, () => {
-  console.log('api server started on port 5000')
+  console.log('API-server started on port 5000')
 })
 
-spaApp.listen(80, () => {
-  console.log('spa server started on port 80')
-})
+// spaApp.get('*', (req, res) => {
+//   res.send('popajopa SPA')
+// })
+
+// spaApp.listen(80, () => {
+//   console.log('SPA-server started on port 80')
+// })
