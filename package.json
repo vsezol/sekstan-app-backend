@@ -1,0 +1,17 @@
+{
+  "name": "sekstan-app-backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/vsezol/sekstan-app-backend",
+  "author": "Vsevolod Zolotov <vsevolod.zolotov02@mail.ru>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
