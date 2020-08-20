@@ -9,6 +9,15 @@ const readJSONFile = path =>
     })
   })
 
+const writeJSONFile = (path, data) =>
+  new Promise((res, rej) => {
+    fs.writeFile(path, JSON.stringify(data), err => {
+      if (err) rej(err)
+      res()
+    })
+  })
+
 module.exports = {
-  readJSONFile
+  readJSONFile,
+  writeJSONFile
 }
