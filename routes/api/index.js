@@ -7,7 +7,13 @@ const router = Router()
 
 router.get('/archive', async (req, res) => {
   const archiveM = new DBManager('archive')
-  res.send(await archiveM.content)
+  const archive = await archiveM.content
+  res.json(archive)
+})
+
+router.put('/begin-vars', async (req, res) => {
+  console.log(req.body)
+  res.sendStatus(200)
 })
 
 module.exports = router
