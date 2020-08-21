@@ -8,9 +8,9 @@ class DBManager {
   get content() {
     return readJSONFile(this.path)
   }
-  // set content(data) {
-
-  // }
+  set content(data) {
+    return writeJSONFile(this.path, data)
+  }
 }
 
 module.exports = DBManager
