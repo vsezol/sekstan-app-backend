@@ -1,9 +1,15 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const cors = require('cors')
+const WebSocket = require('ws')
+const http = require('http')
 
 const apiApp = express()
-// const spaApp = express()
+const apiServer = http.createServer(apiApp)
+const wss = new WebSocket.Server({ server: apiServer })
+
+module.exports = { wss }
+require('./routes/api/wss')
 
 apiApp.use(bodyParser.urlencoded({ extended: false }))
 apiApp.use(bodyParser.json())
@@ -16,14 +22,6 @@ apiApp.use(cors())
 apiApp.use('/py', pyRouter)
 apiApp.use('/api', apiRouter)
 
-apiApp.listen(5000, () => {
+apiServer.listen(5000, () => {
   console.log('API-server started on port 5000')
 })
-
-// spaApp.get('*', (req, res) => {
-//   res.send('popajopa SPA')
-// })
-
-// spaApp.listen(80, () => {
-//   console.log('SPA-server started on port 80')
-// })
