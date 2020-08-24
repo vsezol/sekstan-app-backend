@@ -1,6 +1,5 @@
 const path = require('path')
 const { Router } = require('express')
-const { writeJSONFile } = require('../../modules/files')
 const DBManager = require('../../modules/dbManager')
 
 const router = Router()
