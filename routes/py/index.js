@@ -6,8 +6,19 @@ router.get('/', (req, res) => {
   const store = global.store
   if (store.currLamp.name && store.currLamp.type) {
     const pyq = req.query
-    store.currLampObj = pyq
-    sendResult(pyq)
+    const OC = +pyq.degs * 60 + +pyq.mins
+    const T = pyq.time
+    const date = pyq.date
+    const value = pyq.value
+    const payload = {
+      OC,
+      T,
+      date,
+      value
+    }
+    store.currLampObj = payload
+    payload.request = 'RESULT'
+    sendResult(payload)
   }
   res.sendStatus(200)
 })
