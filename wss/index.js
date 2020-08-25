@@ -1,16 +1,22 @@
 const { wss } = require('../index')
-const { SET_CURRENT_PLANET } = require('./requestTypes')
+require('./senders')
+const { SET_CURRENT_LAMP, CLEAR_CURRENT_LAMP } = require('./requestTypes')
 
 wss.on('connection', ws => {
-  ws.on('message', msg => {
-    const data = JSON.parse(msg)
-    const request = data.request
-    switch (request) {
-      case SET_CURRENT_PLANET:
-        console.log(global.store)
-        break
-    }
-  })
+  ws.on('message', msg => msgHandler(msg))
+  global.store.ws = ws
 })
 
-// const SetCurrentPlanet = () => {}
+const msgHandler = msg => {
+  const data = JSON.parse(msg)
+  switch (data.request) {
+    case SET_CURRENT_LAMP:
+      console.log('SET_CURRENT_LAMP')
+      global.store.setLamp(data.name, data.type)
+      break
+    case CLEAR_CURRENT_LAMP:
+      console.log('CLEAR_CURRENT_LAMP')
+      global.store.clearCurrLamp()
+      break
+  }
+}
