@@ -11,7 +11,7 @@ const msgHandler = msg => {
   const data = JSON.parse(msg)
   switch (data.request) {
     case SET_CURRENT_LAMP:
-      console.log('SET_CURRENT_LAMP')
+      console.log('SET_CURRENT_LAMP |', 'TYPE:', data.type, '| NAME:', data.name)
       global.store.setLamp(data.name, data.type)
       break
     case CLEAR_CURRENT_LAMP:

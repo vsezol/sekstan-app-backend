@@ -7,6 +7,7 @@ router.get('/', (req, res) => {
   if (store.currLamp.name && store.currLamp.type) {
     const pyq = req.query
     store.currLampObj = pyq
+    pyq.type = 'CHECK_PLANETS_ADD_RESULT'
     sendResult(pyq)
   }
   res.sendStatus(200)
