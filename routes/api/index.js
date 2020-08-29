@@ -26,7 +26,9 @@ router.put('/checked-planets-stars', async (req, res) => {
 
 router.delete('/checked-lamps', (req, res) => {
   global.store.deleteResult(+req.query.index)
-  res.json(global.store.avOCT)
+  const currLamp = { ...global.store.currLampObj }
+  delete currLamp.results
+  res.json(currLamp)
 })
 
 module.exports = router
