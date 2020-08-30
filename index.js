@@ -9,7 +9,7 @@ require('./store')
 const apiApp = express()
 const spaApp = express()
 const apiServer = http.createServer(apiApp)
-const spaServer = http.createServer(spaApp)
+// const spaServer = http.createServer(spaApp)
 const wss = new WebSocket.Server({ server: apiServer })
 
 module.exports = { wss }
@@ -26,17 +26,17 @@ apiApp.use(cors())
 apiApp.use('/py', pyRouter)
 apiApp.use('/api', apiRouter)
 
-spaApp.use(express.static(path.join(__dirname, 'dist')))
+// spaApp.use(express.static(path.join(__dirname, 'dist')))
 
-spaApp.get('*', (req, res) => {
-  console.log(path.join(__dirname, '/dist/index.html'))
-  res.sendFile(path.join(__dirname, '/dist/index.html'))
-})
+// spaApp.get('*', (req, res) => {
+//   console.log(path.join(__dirname, '/dist/index.html'))
+//   res.sendFile(path.join(__dirname, '/dist/index.html'))
+// })
 
 apiServer.listen(5000, () => {
   console.log('API-server started on port 5000')
 })
 
-spaServer.listen(8080, () => {
-  console.log('SPA-server started on port 8080')
-})
+// spaServer.listen(8080, () => {
+//   console.log('SPA-server started on port 8080')
+// })

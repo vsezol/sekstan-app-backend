@@ -1,1 +1,1 @@
-{"planets":[{"name":"jupiter","checked":true,"iconSrc":"/img/jupiter.740ca499.svg","results":[],"avOC":null,"avT":null,"link":"/location/checked-list/jupiter?type=planet"}],"stars":[]}
+{"planets":[{"name":"jupiter","checked":true,"iconSrc":"/img/jupiter.740ca499.svg","results":[],"avOC":null,"avT":null,"link":"/location/checked-list/jupiter?type=planet"},{"name":"moon","checked":true,"iconSrc":"/img/moon.65044e42.svg","results":[],"avOC":null,"avT":null,"link":"/location/checked-list/moon?type=planet"}],"stars":[]}
