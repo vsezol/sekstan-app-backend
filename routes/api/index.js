@@ -31,4 +31,9 @@ router.delete('/checked-lamps', (req, res) => {
   res.json(currLamp)
 })
 
+router.get('/power-off', (req, res) => {
+  console.log('POWER_OFF')
+  res.sendStatus(200)
+})
+
 module.exports = router
