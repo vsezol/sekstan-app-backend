@@ -4,7 +4,7 @@ from random import randint as ri
 while True:
     try:
         input('введите любое значение: ')
-        t = f'{ri(0, 23)}:{ri(0, 59)}'
+        t = f'{ri(0, 23)}:{ri(0, 59)}:{ri(0, 59)}'
         d = f'{ri(1, 31)}.{ri(1, 11)}.20{ri(10, 20)}'
         value = ri(20000, 25000)
         degs = ri(1, 89)
@@ -14,4 +14,3 @@ while True:
     except requests.exceptions.HTTPError as err:
         print('Oops. HTTP Error occured')
         print('Response is: {content}'.format(content=err.response.content))
-    time.sleep(2)

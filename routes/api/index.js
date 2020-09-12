@@ -24,4 +24,16 @@ router.put('/checked-planets-stars', async (req, res) => {
   res.sendStatus(200)
 })
 
+router.delete('/checked-lamps', (req, res) => {
+  global.store.deleteResult(+req.query.index)
+  const currLamp = { ...global.store.currLampObj }
+  delete currLamp.results
+  res.json(currLamp)
+})
+
+router.get('/power-off', (req, res) => {
+  console.log('POWER_OFF')
+  res.sendStatus(200)
+})
+
 module.exports = router
